@@ -2,6 +2,8 @@
     "languages": {
       "JavaScript": "Awesome",
       "C++": "Difficult",
-      "BASIC": "Old"
+      "BASIC": "Old",
+      "Java": "Complex",
+      "C#": "Not bad"
     }
 }

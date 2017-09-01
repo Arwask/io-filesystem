@@ -25,8 +25,9 @@
 // const fileArg = process.argv[2];
                 
 // if(fileArg) {
-//     readFile( fileArg, ( err, data) => { //error first pattern
-//         if(err) return console.error(err);
+//     readFile( fileArg, ( err, data) => { //error-first pattern
+//         if(err) 
+                // return console.error(err);
 //         process.stdout.write(data);
 //     });
 // } else {
@@ -69,7 +70,7 @@ const { map, split } = require('event-stream'); //for map and split methods
 const userInput = process.argv[2] ? process.argv[2].toLowerCase() : null;
 const writeStream = Writable();
 const wordListStream = createReadStream('msg.txt');
-const limitToTen = require('./limit-ten')
+const limitToTen = require('./limit-ten')();
 writeStream._write = (word, _, next) => {
     const output = word || "No matching word found."
     process.stdout.write(output);
@@ -82,7 +83,7 @@ if(!userInput) {
 }
 
 wordListStream
-.pipe( split())
+.pipe( split(" "))
 .pipe(map( (word, done) => {
     word.toString().toLowerCase().includes(userInput) ? done(null, word + "\n") : done()
 })
