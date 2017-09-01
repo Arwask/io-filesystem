@@ -10,4 +10,4 @@ let file = process.argv[2] ? process.argv[2] : exit();
 
 const text = readFileSync(`${file}`);
 
-process.stdout.write(text);
+process.stdout.write( text );
