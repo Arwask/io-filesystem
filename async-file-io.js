@@ -3,7 +3,8 @@
 const { readFile } = require('fs');
 
 const file = process.argv[2] ? process.argv[2] : process.exit()
-readFile(`${file}`, (err, data) => {
+readFile(`${file}`,'utf8', (err, data) => {
     if(err) throw(err);
-    console.log(data.toString());
+    process.stdout.write(data);
+    console.log(data);
 })
